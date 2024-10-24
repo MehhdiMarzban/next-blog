@@ -4,8 +4,8 @@ import { getBlogs } from "@/services/blogs.service";
 const BlogsList: React.FC = async () => {
     await new Promise((res) =>
         setTimeout(() => {
-            res("");
-        }, 3000)
+            res("waiting done!");
+        }, 1000)
     );
 
     const posts = await getBlogs(); 

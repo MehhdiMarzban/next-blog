@@ -38,7 +38,7 @@ function Header() {
                     </div>
                     <li>
                         {user ? (
-                            <NavLink path="/profile">{appTexts.BLOGS}</NavLink>
+                            <NavLink path="/profile">{appTexts.PROFILE}</NavLink>
                         ) : (
                             <NavLink path="/signin">{appTexts.SIGNIN}</NavLink>
                         )}
