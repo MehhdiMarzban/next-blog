@@ -12,3 +12,7 @@ export const signinApi = (signinForm: SigninType): Promise<ResponseType> => {
 export const getUserApi = () : Promise<ResponseType> => {
     return http.get("/user/profile").then(data => data.data);
 }
+
+export const logoutApi = () : Promise<ResponseType> => {
+    return http.post("/user/logout")
+}

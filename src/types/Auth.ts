@@ -21,6 +21,6 @@ export interface AuthContextReducer {
 export interface AuthContext extends Omit<AuthContextReducer, "error">{
     signin:  (data : Signin) => Promise<void>;
     signup: (data: Signup) => Promise<void>;
-    logout: () => {};
+    logout: () => Promise<void>;
     getUser: () => Promise<void>;
 }

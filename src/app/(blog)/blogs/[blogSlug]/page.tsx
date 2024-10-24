@@ -1,6 +1,6 @@
-import { BlogType } from "@types";
+import { BlogType } from "@/types";
 import { notFound } from "next/navigation";
-import { getBlogBySlug, getBlogs } from "@services/blogs.service";
+import { getBlogBySlug, getBlogs } from "@/services/blogs.service";
 import { Metadata } from "next";
 
 //* this is for disable or able to used dynamic params

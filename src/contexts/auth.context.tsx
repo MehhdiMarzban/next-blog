@@ -62,7 +62,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             } = await signinApi(value);
             dispatch({ type: "signin", payload: user });
             toast.success(message);
-            // router.push("/profile");
+            router.push("/profile");
         } catch (error: any) {
             const err = error?.response?.data?.message;
             toast.error(err);
@@ -74,7 +74,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         dispatch({ type: "loading" });
         try {
             const {
-                data: { message, user },
+                data: { message, user }
             } = await signupApi(value);
             dispatch({ type: "signup", payload: { user } });
             toast.success(message);

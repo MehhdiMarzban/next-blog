@@ -1,4 +1,4 @@
-import { ButtonType } from "@types";
+import { ButtonType } from "@/types";
 
 const btnType = {
     primary: "bg-primary-100 text-primary-700 hover:bg-primary-900 hover:text-white",

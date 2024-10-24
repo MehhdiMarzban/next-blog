@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { NavLinkType } from "@types";
+import { NavLinkType } from "@/types";
 import { usePathname } from "next/navigation";
 
 function NavLink({ path, children }: Readonly<NavLinkType>) {

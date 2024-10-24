@@ -5,9 +5,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { ButtonIcon } from "@/components/core";
 import { toPersianDigits } from "@/utils/numberFormatter";
-import Blog from "types/Blog";
+import {BlogType} from "@/types";
 
-const BlogInteractions: React.FC<{ post : Blog }> = ({
+const BlogInteractions: React.FC<{ post : BlogType }> = ({
     post
 }) => {
     return (

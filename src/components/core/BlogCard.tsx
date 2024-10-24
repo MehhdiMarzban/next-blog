@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ClockIcon } from "@heroicons/react/24/outline";
 
-import { BlogType } from "@types";
+import { BlogType } from "@/types";
 import { Author, BlogInteractions, Button, CoverImage } from "@/components/core";
 import appTexts from "@/constants/appTexts";
 
