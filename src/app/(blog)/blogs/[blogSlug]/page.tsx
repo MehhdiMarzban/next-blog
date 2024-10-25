@@ -1,6 +1,6 @@
 import { BlogType } from "@/types";
 import { notFound } from "next/navigation";
-import { getBlogBySlug, getBlogs } from "@/services/blogs.service";
+import { getBlogBySlugApi, getBlogsApi } from "@/services/blogs.service";
 import { Metadata } from "next";
 
 //* this is for disable or able to used dynamic params
@@ -15,7 +15,7 @@ export const generateMetadata = async ({
 }: {
     params: { blogSlug: string };
 }): Promise<Metadata> => {
-    const post: BlogType = await getBlogBySlug(blogSlug);
+    const post: BlogType = await getBlogBySlugApi(blogSlug);
     if (!post) return {};
     return {
         title: post.title,
@@ -24,12 +24,12 @@ export const generateMetadata = async ({
 
 //* StaticParams for generate static pages
 export const generateStaticParams = async () => {
-    const blogs = await getBlogs();
+    const blogs = await getBlogsApi();
     return blogs.map((blog) => ({ blogSlug: blog.slug }));
 };
 
 const BlogPage: React.FC<{ params: { blogSlug: string } }> = async ({ params: { blogSlug } }) => {
-    const post: BlogType = await getBlogBySlug(blogSlug);
+    const post: BlogType = await getBlogBySlugApi(blogSlug);
     if (!post) {
         return notFound();
     }

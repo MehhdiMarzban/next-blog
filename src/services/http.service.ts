@@ -2,11 +2,12 @@ import axios, { AxiosError } from "axios";
 
 const app = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
-    withCredentials: true
+    withCredentials: true,
+    headers: { "Content-Type": "application/json" },
 });
 
 app.interceptors.request.use(
-    (res) => res,
+    (req) => req,
     (err) => Promise.reject(err)
 );
 

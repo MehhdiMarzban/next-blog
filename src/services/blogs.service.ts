@@ -1,8 +1,7 @@
-import { BlogType } from "@/types";
+import { BlogType, ResponseType } from "@/types";
 import http from "./http.service";
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-export const getBlogBySlug = async (slug: string): Promise<BlogType> => {
+export const getBlogBySlugApi = async (slug: string): Promise<BlogType> => {
     const {
         data: { data },
     } = await http.get(`/post/slug/${slug}`);
@@ -10,10 +9,14 @@ export const getBlogBySlug = async (slug: string): Promise<BlogType> => {
     return post;
 };
 
-export const getBlogs = async (): Promise<BlogType[]> => {
-    const { data } = await http.get(`/post/list`);
+export const getBlogsApi = async (options = {}): Promise<BlogType[]> => {
+    const { data } = await http.get(`/post/list`, options);
     const {
         data: { posts },
     }: { data: { posts: BlogType[] } } = data || [];
     return posts;
+};
+
+export const likeBlogsApi = (blogId: string): Promise<ResponseType> => {
+    return http.post(`/post/like/${blogId}`).then((data) => data.data);
 };
