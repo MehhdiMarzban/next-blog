@@ -20,3 +20,7 @@ export const getBlogsApi = async (options = {}): Promise<BlogType[]> => {
 export const likeBlogsApi = (blogId: string): Promise<ResponseType> => {
     return http.post(`/post/like/${blogId}`).then((data) => data.data);
 };
+
+export const bookmarkBlogApi = (blogId: string): Promise<ResponseType> => {
+    return http.post(`/post/bookmark/${blogId}`).then((data) => data.data);
+};

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"next dev\" \"cd .. && cd .. && cd backend && npm run dev\" ",
     "build": "concurrently \"next build\" \"cd .. && cd .. && cd backend && npm run dev\" ",
-    "start": "next start",
+    "start": "concurrently \"next start\" \"cd .. && cd .. && cd backend && npm run dev\" ",
     "lint": "next lint"
   },
   "dependencies": {

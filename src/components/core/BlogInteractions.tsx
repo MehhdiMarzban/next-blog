@@ -12,16 +12,21 @@ import {
 import { ButtonIcon } from "@/components/core";
 import { toPersianDigits } from "@/utils/numberFormatter";
 import { BlogType } from "@/types";
-import { likeBlogsApi } from "@/services/blogs.service";
+import { bookmarkBlogApi, likeBlogsApi } from "@/services/blogs.service";
 import { useRouter } from "next/navigation";
 
 const BlogInteractions: React.FC<{ post: BlogType }> = ({ post }) => {
     const router = useRouter();
-    const handleLikeBlog = async (blogId: string) => {
+    const handleInteractions = async (blogId: string, interaction: "like" | "bookmark") => {
         try {
-            const {
-                data: { message },
-            } = await likeBlogsApi(blogId);
+            let message = "";
+            if (interaction === "like") {
+                const { data } = await likeBlogsApi(blogId);
+                message = data.message;
+            } else if (interaction === "bookmark") {
+                const { data } = await bookmarkBlogApi(blogId);
+                message = data.message;
+            }
             toast.success(message);
             router.refresh();
         } catch (error: any) {
@@ -35,11 +40,11 @@ const BlogInteractions: React.FC<{ post: BlogType }> = ({ post }) => {
                 <ChatBubbleOvalLeftEllipsisIcon />
                 <span>{toPersianDigits(post.commentsCount)}</span>
             </ButtonIcon>
-            <ButtonIcon variant="danger" onClick={() => handleLikeBlog(post.id)}>
+            <ButtonIcon variant="danger" onClick={() => handleInteractions(post.id, "like")}>
                 {post.isLiked ? <HeartIconSolid /> : <HeartIcon />}
                 <span>{toPersianDigits(post.likesCount)}</span>
             </ButtonIcon>
-            <ButtonIcon variant="primary">
+            <ButtonIcon variant="primary" onClick={() => handleInteractions(post.id, "bookmark")}>
                 {post.isBookmarked ? <BookmarkIconSolid /> : <BookmarkIcon />}
             </ButtonIcon>
         </div>
