@@ -17,6 +17,14 @@ export const getBlogsApi = async (options = {}): Promise<BlogType[]> => {
     return posts;
 };
 
+export const getBlogsByCategoryApi = async (category: string, options): Promise<BlogType[]> => {
+    const {
+        data: { data },
+    } = await http.get(`/post/list?categorySlug=${category}`, options);
+    const { posts } = data || [];
+    return posts;
+};
+
 export const likeBlogsApi = (blogId: string): Promise<ResponseType> => {
     return http.post(`/post/like/${blogId}`).then((data) => data.data);
 };
