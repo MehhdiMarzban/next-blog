@@ -8,3 +8,5 @@ export { default as ButtonIcon } from "./ButtonIcon";
 export { default as BlogInteractions } from "./BlogInteractions";
 export { default as BlogCard } from "./BlogCard";
 export { default as RHFTextField } from "./RHFTextfield";
+export { default as Search } from "./Search";
+export {default as BlogsLengthHandler} from "./BlogsLengthHandler";
