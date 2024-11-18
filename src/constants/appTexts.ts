@@ -19,11 +19,12 @@ const AppTexts = {
     MINUTES: "دقیقه",
     ERROR_PAGE: "متاسفانه مشکل زیر در برنامه بوجود آمده :",
     RESET: "تلاش دوباره",
+    RELATED_BLOGS :"وبلاگ های مرتبط",
     VALIDATIONS: {
         MIN: "حداقل باید ${min} حرف باشد! ",
         REQUIRED: "پر کردن این قسمت ضروری است !",
         EMAIL: "ایمیل وارد شده صحیح نمی باشد!"
-    }
+    },
 };
 
 export default AppTexts;

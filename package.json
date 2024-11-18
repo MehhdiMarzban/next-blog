@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.7",
+    "classnames": "^2.5.1",
     "cookies-next": "^4.3.0",
     "lottie-react": "^2.4.0",
     "next": "14.2.11",

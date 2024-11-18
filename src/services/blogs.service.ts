@@ -1,10 +1,10 @@
 import { BlogType, ResponseType } from "@/types";
 import http from "./http.service";
 
-export const getBlogBySlugApi = async (slug: string): Promise<BlogType> => {
+export const getBlogBySlugApi = async (slug: string, options): Promise<BlogType> => {
     const {
         data: { data },
-    } = await http.get(`/post/slug/${slug}`);
+    } = await http.get(`/post/slug/${slug}`, options);
     const { post }: { post: BlogType } = data || {};
     return post;
 };

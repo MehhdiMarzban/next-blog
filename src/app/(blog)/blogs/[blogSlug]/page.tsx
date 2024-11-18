@@ -1,7 +1,10 @@
-import { BlogType } from "@/types";
-import { notFound } from "next/navigation";
-import { getBlogBySlugApi, getBlogsApi } from "@/services/blogs.service";
 import { Metadata } from "next";
+import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
+import setCookiesOnReq from "@/utils/setCookiesOnReq";
+import { BlogType } from "@/types";
+import { getBlogBySlugApi, getBlogsApi } from "@/services/blogs.service";
+import { BlogComments, BlogInteractions, CoverImage, RelatedBlogs } from "@/components/core";
 
 //* this is for disable or able to used dynamic params
 export const dynamicParams = false;
@@ -15,7 +18,7 @@ export const generateMetadata = async ({
 }: {
     params: { blogSlug: string };
 }): Promise<Metadata> => {
-    const post: BlogType = await getBlogBySlugApi(blogSlug);
+    const post: BlogType = await getBlogBySlugApi(blogSlug, {});
     if (!post) return {};
     return {
         title: post.title,
@@ -24,16 +27,33 @@ export const generateMetadata = async ({
 
 //* StaticParams for generate static pages
 export const generateStaticParams = async () => {
-    const blogs = await getBlogsApi();
+    const blogs = await getBlogsApi("");
     return blogs.map((blog) => ({ blogSlug: blog.slug }));
 };
 
 const BlogPage: React.FC<{ params: { blogSlug: string } }> = async ({ params: { blogSlug } }) => {
-    const post: BlogType = await getBlogBySlugApi(blogSlug);
-    if (!post) {
+    const appCookies = cookies();
+    const options = setCookiesOnReq(appCookies);
+    const blog: BlogType = await getBlogBySlugApi(blogSlug, options);
+
+    if (!blog) {
         return notFound();
     }
-    return <div>{post.title}</div>;
+    return (
+        <div className="bg-secondary-100 rounded-md py-4 px-2">
+            <h1 className="bg-secondary-200 rounded-md my-2 text-center py-4 text-2xl font-bold">
+                {blog.title}
+            </h1>
+            <div className="max-w-xl mx-auto">
+                <CoverImage src={blog.coverImageUrl} alt={blog.title} slug={blog.slug} />
+            </div>
+            <BlogInteractions blog={blog} />
+            <p className="mt-2 text-justify bg-secondary-50 p-2 rounded-md">{blog.text}</p>
+            <br />
+            {blog.related.length > 0 && <RelatedBlogs blogs={blog.related} />}
+            <BlogComments blog={blog} />
+        </div>
+    );
 };
 
 export default BlogPage;

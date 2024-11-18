@@ -1,5 +1,6 @@
 import Author from "./Author";
 import Category from "./Category";
+import Comment from "./Comment";
 
 export default interface Blog {
     _id: string;
@@ -21,6 +22,6 @@ export default interface Blog {
     likesCount: number;
     isLiked: boolean;
     isBookmarked: boolean;
-    comments: object[];
+    comments: Comment[];
     commentsCount: number;
 }

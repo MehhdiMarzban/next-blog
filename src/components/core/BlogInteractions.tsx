@@ -15,7 +15,7 @@ import { BlogType } from "@/types";
 import { bookmarkBlogApi, likeBlogsApi } from "@/services/blogs.service";
 import { useRouter } from "next/navigation";
 
-const BlogInteractions: React.FC<{ post: BlogType }> = ({ post }) => {
+const BlogInteractions: React.FC<{ blog: BlogType }> = ({ blog }) => {
     const router = useRouter();
     const handleInteractions = async (blogId: string, interaction: "like" | "bookmark") => {
         try {
@@ -38,14 +38,14 @@ const BlogInteractions: React.FC<{ post: BlogType }> = ({ post }) => {
         <div className="flex justify-center items-center mt-2 gap-x-4">
             <ButtonIcon variant="secondary">
                 <ChatBubbleOvalLeftEllipsisIcon />
-                <span>{toPersianDigits(post.commentsCount)}</span>
+                <span>{toPersianDigits(blog.commentsCount)}</span>
             </ButtonIcon>
-            <ButtonIcon variant="danger" onClick={() => handleInteractions(post.id, "like")}>
-                {post.isLiked ? <HeartIconSolid /> : <HeartIcon />}
-                <span>{toPersianDigits(post.likesCount)}</span>
+            <ButtonIcon variant="danger" onClick={() => handleInteractions(blog.id, "like")}>
+                {blog.isLiked ? <HeartIconSolid /> : <HeartIcon />}
+                <span>{toPersianDigits(blog.likesCount)}</span>
             </ButtonIcon>
-            <ButtonIcon variant="primary" onClick={() => handleInteractions(post.id, "bookmark")}>
-                {post.isBookmarked ? <BookmarkIconSolid /> : <BookmarkIcon />}
+            <ButtonIcon variant="primary" onClick={() => handleInteractions(blog.id, "bookmark")}>
+                {blog.isBookmarked ? <BookmarkIconSolid /> : <BookmarkIcon />}
             </ButtonIcon>
         </div>
     );
