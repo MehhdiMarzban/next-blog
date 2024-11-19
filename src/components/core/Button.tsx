@@ -7,9 +7,9 @@ const btnType = {
     danger: "btn--danger",
 };
 
-function Button({ children, onClick, variant = "primary", className, type="button", ...rest }: Readonly<ButtonType>) {
+function Button({ children, onClick, variant = "primary", className, type="button", disabled = false , ...rest }: Readonly<ButtonType>) {
     return (
-        <button onClick={onClick} className={`btn ${btnType[variant]} ${className}`} type={type} {...rest}>
+        <button onClick={onClick} disabled={disabled} className={`btn ${btnType[variant]} ${className}`} type={type} {...rest}>
             {children}
         </button>
     );

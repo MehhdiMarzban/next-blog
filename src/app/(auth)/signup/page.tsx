@@ -6,9 +6,11 @@ import { Button, RHFTextField } from "@/components/core";
 import appTexts from "@/constants/appTexts";
 import { signupSchema, SignupFormType } from "@/validations/auth.validation";
 import {useAuth} from "@/contexts/auth.context";
+import { useRouter } from "next/navigation";
 
 const SignupPage: React.FC = () => {
     const {signup} = useAuth();
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -17,6 +19,7 @@ const SignupPage: React.FC = () => {
 
     const onSubmit = async (data) => {
         await signup(data);
+        router.replace("/");
     };
 
     return (
