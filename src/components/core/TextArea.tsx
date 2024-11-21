@@ -1,9 +1,9 @@
 function TextArea({
   label,
   name,
-  value,
+  value = undefined,
   dir = "rtl",
-  onChange,
+  onChange = () => {},
   isRequired = false,
 }) {
   return (

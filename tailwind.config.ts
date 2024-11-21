@@ -17,6 +17,7 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     darkMode: ["class", '[class="dark-mode"]'],
+    // darkMode: "class",
     theme: {
         extend: {
             colors: {

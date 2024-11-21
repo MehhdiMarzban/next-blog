@@ -9,7 +9,7 @@ const Avatar: React.FC<Readonly<{ width?: number; src?: string; alt?: string }>>
         <Image
             className="rounded-full ring-2 ring-secondary-400"
             alt={alt}
-            src={src}
+            src={src ?? "/images/avatar.png"}
             width={width}
             height={width}
         />

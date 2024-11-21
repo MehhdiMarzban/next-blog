@@ -7,9 +7,12 @@ import setCookiesOnReq from "@/utils/setCookiesOnReq";
 import { revalidatePath } from "next/cache";
 
 export const createComment = async (
-    blogId: BlogType["id"],
-    parentId: CommentType["user"]["_id"],
-    formData: FormData
+    prevState,
+    {
+        blogId,
+        parentId,
+        formData,
+    }: { blogId: BlogType["id"]; parentId: CommentType["user"]["_id"]; formData: FormData }
 ) => {
     const appCookies = cookies();
     const requestOptions = setCookiesOnReq(appCookies);
@@ -25,7 +28,9 @@ export const createComment = async (
             data: { message },
         } = await createCommentApi(rawFormData, requestOptions);
         revalidatePath("/blogs/[slug]", "page");
+        return { message };
     } catch (e: any) {
-        // console.log(e?.response?.data?.message);
+        const errorMessage: string = e?.response?.data?.message || "";
+        return { errorMessage };
     }
 };

@@ -10,7 +10,7 @@ const Comment : React.FC<{comment : CommentType , onAddComment? : Function}> = (
                     <Avatar
                         width={34}
                         alt={comment.user?.name || "-"}
-                        src={comment.user?.avatarUrl ?? undefined}
+                        src={comment.user?.avatarUrl}
                     />
                     <div className="text-sm w-full text-secondary-600 mr-2">
                         <span className="font-bold block mb-1">{comment.user.name}</span>
