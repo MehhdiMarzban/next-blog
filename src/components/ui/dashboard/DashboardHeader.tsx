@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
-import { Avatar, ButtonIcon, SpinnerMini } from "@/components/core";
+import { Avatar, ButtonIcon } from "@/components/core";
 import { useAuth } from "@/contexts/auth.context";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Drawer from "./Drawer";
 import SideBar from "./Sidebar";
-import dynamic from "next/dynamic";
 
 function DashboardHeader({}) {
     const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
@@ -35,7 +34,7 @@ function DashboardHeader({}) {
                     <Link href="/profile">
                         <ButtonIcon
                             variant="outline"
-                            className={`border-secondaray-200 rounded-2xl flex cursor-pointer items-center`}>
+                            className={`border-secondaray-200 rounded-full flex cursor-pointer items-center`}>
                             <Avatar src={user?.avatarUrl} />
                         </ButtonIcon>
                     </Link>

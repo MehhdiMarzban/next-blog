@@ -26,7 +26,8 @@ const Drawer: React.FC<DrawerProps> = ({ children, isOpen, onClose }) => {
                 onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                }}>
+                }}
+                >
                 <div className="max-h-full w-full bg-secondary-0 overflow-y-auto">{children}</div>
             </div>
         </>,
