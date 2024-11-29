@@ -19,9 +19,9 @@ const sidebarNavs = [
 
     {
         id: 2,
-        title: "پست ها",
+        title: "بلاگ ها",
         icon: <DocumentTextIcon className="w-5 h-5" />,
-        href: "/profile/posts",
+        href: "/profile/blogs",
     },
     {
         id: 3,

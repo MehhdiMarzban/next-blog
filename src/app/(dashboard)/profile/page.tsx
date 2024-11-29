@@ -1,4 +1,4 @@
-import { DashboardCard } from "@/components/ui/dashboard";
+import {  DashboardCard } from "@/components/ui/dashboard";
 import { dashboardStaticNumberApi } from "@/services/dashboard.services";
 import setCookiesOnReq from "@/utils/setCookiesOnReq";
 import { cookies } from "next/headers";
