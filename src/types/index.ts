@@ -12,3 +12,4 @@ export type {
 export type { default as UserType } from "./User";
 export type { default as ResponseType } from "./Response";
 export type { default as CommentType } from "./Comment";
+export type { default as AppTableType } from "./AppTable";
