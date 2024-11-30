@@ -20,6 +20,7 @@ const AppTexts = {
     ERROR_PAGE: "متاسفانه مشکل زیر در برنامه بوجود آمده :",
     RESET: "تلاش دوباره",
     RELATED_BLOGS: "وبلاگ های مرتبط",
+    BLOG_EMPTY: "وبلاگی",
     VALIDATIONS: {
         MIN: "حداقل باید ${min} حرف باشد! ",
         REQUIRED: "پر کردن این قسمت ضروری است !",
