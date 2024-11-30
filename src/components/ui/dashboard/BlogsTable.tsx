@@ -3,8 +3,8 @@ import AppTexts from "@/constants/appTexts";
 import { getBlogsApi } from "@/services/blogs.service";
 import BlogRow from "./BlogRow";
 
-const BlogsTable: React.FC = async () => {
-    const blogs = await getBlogsApi("");
+const BlogsTable: React.FC<{query?: string}> = async ({query = ""}) => {
+    const blogs = await getBlogsApi(query);
     return (
             <AppTable>
                 <AppTable.Header>

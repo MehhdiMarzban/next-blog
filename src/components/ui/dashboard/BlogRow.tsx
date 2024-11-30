@@ -3,6 +3,7 @@ import { BlogType } from "@/types";
 import { toLocalDateShort } from "@/utils/dateFormater";
 import { toPersianDigits } from "@/utils/numberFormatter";
 import truncateText from "@/utils/trancateText";
+import { DeleteBlogButton, UpdateBlogButton } from "@/components/ui/dashboard";
 
 const typeStyle = {
     free: {
@@ -16,7 +17,7 @@ const typeStyle = {
 };
 
 const BlogRow: React.FC<{ blog: BlogType; index: number }> = ({
-    blog: { title, category, author, createdAt, type },
+    blog: { title, category, author, createdAt, type, id },
     index,
 }) => {
     return (
@@ -31,7 +32,12 @@ const BlogRow: React.FC<{ blog: BlogType; index: number }> = ({
                     {typeStyle[type].label}
                 </span>
             </td>
-            <td>اکشن ها</td>
+            <td>
+                <div className="flex justify-start items-center gap-1">
+                    <UpdateBlogButton id={id} />
+                    <DeleteBlogButton id={id} />
+                </div>
+            </td>
         </AppTable.Row>
     );
 };

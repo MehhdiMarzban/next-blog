@@ -1,10 +1,10 @@
-import { SpinnerMini } from "@/components/core";
+import { SuspenseFeedback } from "@/components/core";
 import { BlogsTable } from "@/components/ui/dashboard";
 import { Suspense } from "react";
 
 const BlogsPage: React.FC = () => {
     return (
-        <Suspense fallback={<SpinnerMini />}>
+        <Suspense fallback={<SuspenseFeedback />}>
             <BlogsTable />
         </Suspense>
     );

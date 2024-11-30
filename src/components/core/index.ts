@@ -18,3 +18,4 @@ export { default as TextArea } from "./TextArea";
 export { default as SubmitButton } from "./SubmissionButton";
 export { default as CommentForm } from "./comments/CommentForm";
 export { default as AppTable } from "./AppTable";
+export { default as SuspenseFeedback } from "./SuspenseFeedback";

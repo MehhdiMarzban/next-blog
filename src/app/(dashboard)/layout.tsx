@@ -15,7 +15,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
                 <div className="col-span-12 lg:col-span-9 xl:col-span-10 h-screen flex flex-col">
                     <DashboardHeader />
                     <main className="bg-secondary-100 rounded-tr-3xl p-4 md:p-6 lg:p-10 flex-1 overflow-y-auto">
-                        <div className="xl:max-w-screen-xl">{children}</div>
+                        <div className="2xl:max-w-screen-2xl">{children}</div>
                     </main>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import {  DashboardCard } from "@/components/ui/dashboard";
+import { BlogsTable, DashboardCard } from "@/components/ui/dashboard";
 import { dashboardStaticNumberApi } from "@/services/dashboard.services";
 import setCookiesOnReq from "@/utils/setCookiesOnReq";
 import { cookies } from "next/headers";
@@ -15,6 +15,7 @@ const ProfilePage = async () => {
                 <DashboardCard title="نظرات" type="comments" value={commentsCounts} />
                 <DashboardCard title="وبلاگ ها" type="blogs" value={blogsCounts} />
             </div>
+            <BlogsTable query="sort=latest&limit=5" />
         </div>
     );
 };

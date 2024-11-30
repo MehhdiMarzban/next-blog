@@ -12,7 +12,7 @@ function ButtonIcon({ children, onClick, className, variant, ...rest }: Readonly
         <button
             onClick={onClick}
             className={`
-        ${btnType[variant]}
+        ${btnType[variant ?? "pirmary"]}
         ${className} flex items-center justify-center gap-x-1 rounded-md p-1
         [&>svg]:w-5  [&>svg]:h-5 [&>svg]:text-inherit
         text-xs lg:text-sm

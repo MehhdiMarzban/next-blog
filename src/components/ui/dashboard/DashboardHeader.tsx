@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Drawer from "./Drawer";
 import SideBar from "./Sidebar";
 
-function DashboardHeader({}) {
+function DashboardHeader() {
     const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
     const { user, isLoading } = useAuth();
 
@@ -33,7 +33,6 @@ function DashboardHeader({}) {
                 <div className="flex items-center gap-x-3">
                     <Link href="/profile">
                         <ButtonIcon
-                            variant="outline"
                             className={`border-secondaray-200 rounded-full flex cursor-pointer items-center`}>
                             <Avatar src={user?.avatarUrl} />
                         </ButtonIcon>
