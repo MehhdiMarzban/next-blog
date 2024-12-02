@@ -23,7 +23,7 @@ export default function Search() {
 
     // console.log(search.value);
     // router.push(createUrl("/search", newParams));
-    router.replace(`${pathname}?${newParams.toString()}`, { scroll: false });
+    router.push(`${pathname}?${newParams.toString()}`, { scroll: false });
 
     // router.push(pathname + "?" + newParams.toString());
   }

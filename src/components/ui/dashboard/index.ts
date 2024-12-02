@@ -5,3 +5,5 @@ export { default as DashboardCard } from "./DashboardCard";
 export { default as BlogsTable } from "./BlogsTable";
 export { DeleteBlogButton } from "./ActionsButtons";
 export { UpdateBlogButton } from "./ActionsButtons";
+export { CreateBlogButton } from "./ActionsButtons";
+export { default as DashboardStatics } from "./DashboardStatics";
