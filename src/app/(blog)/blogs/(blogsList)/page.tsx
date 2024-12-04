@@ -2,17 +2,18 @@ import { Suspense } from "react";
 import { cookies } from "next/headers";
 import queryString from "query-string";
 
-import { BlogsLengthHandler, Empty, Spinner } from "@/components/core";
+import { BlogsLengthHandler, Empty, Pagination, Spinner } from "@/components/core";
 import { BlogsList } from "@/components/ui";
 import AppTexts from "@/constants/appTexts";
 import setCookiesOnReq from "@/utils/setCookiesOnReq";
-import { getBlogsApi } from "@/services/blogs.service";
+import { getBlogsApi, getTotalBlogsApi } from "@/services/blogs.service";
 
 const BlogsListPage: React.FC<{ searchParams: { q: string } }> = async ({ searchParams }) => {
     const queries = queryString.stringify(searchParams);
     const appCookies = cookies();
     const options = setCookiesOnReq(appCookies);
     const blogs = await getBlogsApi(queries, options);
+    const totalPages = await getTotalBlogsApi(queries);
 
     return (
         <section>
@@ -26,6 +27,9 @@ const BlogsListPage: React.FC<{ searchParams: { q: string } }> = async ({ search
                     <Suspense fallback={<Spinner />}>
                         <BlogsList blogs={blogs} />
                     </Suspense>
+                    <div className="flex justify-center items-center my-4">
+                        <Pagination totalPages={totalPages} />
+                    </div>
                 </>
             ) : (
                 <Empty resourceName={AppTexts.BLOG_EMPTY} />

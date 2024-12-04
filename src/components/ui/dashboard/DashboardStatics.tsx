@@ -9,7 +9,7 @@ const DashboardStatics: React.FC = async () => {
 
     const { blogsCounts, commentsCounts, usersCounts } = await dashboardStaticNumberApi(options);
     return (
-        <div className="grid gap-6 md:grid-cols-3 justify-between items-center mb-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 justify-between items-center mb-8">
             <DashboardCard title="کاربران" type="users" value={usersCounts} />
             <DashboardCard title="نظرات" type="comments" value={commentsCounts} />
             <DashboardCard title="وبلاگ ها" type="blogs" value={blogsCounts} />

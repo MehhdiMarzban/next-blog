@@ -10,7 +10,7 @@ const BlogListLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =
                 <h1 className="text-lg font-bold">{appTexts.BLOGS}</h1>
                 <Search />
             </div>
-            <div className="grid grid-cols-12 gap-8">
+            <div className="grid grid-cols-12 gap-2 md:gap-8">
                 <div className="col-span-12 lg:col-span-3 xl:col-span-2 space-y-4">
                     <Suspense fallback={<Spinner />}>
                         <CategoryList />

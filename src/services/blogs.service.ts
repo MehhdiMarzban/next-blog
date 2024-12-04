@@ -17,6 +17,10 @@ export const getBlogsApi = async (queries: string, options = {}): Promise<BlogTy
     return posts;
 };
 
+export const getTotalBlogsApi = async (queries: string = "", options = {}): Promise<number> => {
+    return http.get(`/post/list?${queries}`, options).then(({ data }) => data.data.totalPages);
+};
+
 // export const getBlogsByCategoryApi = async (category: string, options): Promise<BlogType[]> => {
 //     const {
 //         data: { data },

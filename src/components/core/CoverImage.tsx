@@ -8,6 +8,7 @@ const CoverImage: React.FC<Readonly<{ alt?: string; src: string , slug: string}>
                 <Image
                     src={src}
                     alt={alt}
+                    sizes="auto"
                     fill
                     quality={80}
                     className="object-cover object-center hover:scale-110 transition-all duration-300 ease-out"
