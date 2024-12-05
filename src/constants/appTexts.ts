@@ -11,7 +11,7 @@ const AppTexts = {
     SIGNOUT: "خروج",
     BLOGS: "بلاگ ها",
     HOME: "خانه",
-    DASHBOARD: "داشبورد", 
+    DASHBOARD: "داشبورد",
     NOT_FOUND_PAGE: "متاسفانه صفحه مورد نظر شما پیدا نشد!",
     BACK_TO_LAST_PAGE: "بازگشت به صفحه قبلی",
     LOADING: "در حال بارگذاری ...",
@@ -24,6 +24,7 @@ const AppTexts = {
     RELATED_BLOGS: "وبلاگ های مرتبط",
     BLOG_EMPTY: "وبلاگی",
     CREATE_NEW_BLOG: "ساخت وبلاگ جدید",
+    EDIT_BLOG: "ویرایش وبلاگ",
     VALIDATIONS: {
         MIN: "حداقل باید ${min} حرف باشد! ",
         REQUIRED: "پر کردن این قسمت ضروری است !",

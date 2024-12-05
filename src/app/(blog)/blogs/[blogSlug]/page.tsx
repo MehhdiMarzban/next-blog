@@ -41,14 +41,14 @@ const BlogPage: React.FC<{ params: { blogSlug: string } }> = async ({ params: { 
     }
     return (
         <div className="bg-secondary-100 rounded-md py-4 px-2">
-            <h1 className="bg-secondary-200 rounded-md my-2 text-center py-4 text-2xl font-bold">
+            <h1 className="bg-secondary-200 text-secondary-600 rounded-md my-2 text-center py-4 text-2xl font-bold">
                 {blog.title}
             </h1>
             <div className="max-w-xl mx-auto">
                 <CoverImage src={blog.coverImageUrl} alt={blog.title} slug={blog.slug} />
             </div>
             <BlogInteractions blog={blog} />
-            <p className="mt-2 text-justify bg-secondary-50 p-2 rounded-md">{blog.text}</p>
+            <p className="mt-2 text-justify bg-secondary-50 text-secondary-500 p-2 rounded-md">{blog.text}</p>
             <br />
             {blog.related.length > 0 && <RelatedBlogs blogs={blog.related} />}
             <BlogComments blog={blog} />

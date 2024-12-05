@@ -21,3 +21,4 @@ export { default as AppTable } from "./AppTable";
 export { default as SuspenseFeedback } from "./SuspenseFeedback";
 export { default as Empty } from "./Empty";
 export { default as Pagination } from "./Pagination";
+export { default as Breadcrumb } from "./BreadCrumb";

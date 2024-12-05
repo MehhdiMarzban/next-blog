@@ -6,7 +6,7 @@ import AppTexts from "@/constants/appTexts";
 const RelatedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
     return (
         <div className="mb-10">
-            <p className="text-xl mb-4">{AppTexts.RELATED_BLOGS}</p>
+            <p className="text-xl mb-4 text-secondary-500">{AppTexts.RELATED_BLOGS}</p>
             <div className="grid gap-4 grid-cols-6">
                 {blogs.map((item) => {
                     return (

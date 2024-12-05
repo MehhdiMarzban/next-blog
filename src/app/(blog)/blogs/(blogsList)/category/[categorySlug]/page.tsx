@@ -27,7 +27,7 @@ const CategoryPage: React.FC<{
             <BlogsLengthHandler search={searchParams.q} blogsLength={blogs.length} />
             {blogs.length > 0 && (
                 <>
-                    <h1 className="text-lg font-bold text-center bg-secondary-200 py-2 rounded-md mb-4">
+                    <h1 className="text-lg text-secondary-600 font-bold text-center bg-secondary-200 py-2 rounded-md mb-4">
                         {blogs[0]?.category?.title}
                     </h1>
                     <BlogsList blogs={blogs} />

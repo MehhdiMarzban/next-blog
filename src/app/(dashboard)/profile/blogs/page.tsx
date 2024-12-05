@@ -1,9 +1,10 @@
 import { Suspense } from "react";
-import { Pagination, Search, SuspenseFeedback } from "@/components/core";
+import { Breadcrumb, Pagination, Search, SuspenseFeedback } from "@/components/core";
 import { BlogsTable, CreateBlogButton } from "@/components/ui/dashboard";
 import AppTexts from "@/constants/appTexts";
 import queryString from "query-string";
 import { getTotalBlogsApi } from "@/services/blogs.service";
+import breadcrumbs from "@/constants/breadCrumbs";
 
 const BlogsPage: React.FC<{searchParams: Record<string, any>}> = async ({searchParams}) => {
     const query = queryString.stringify(searchParams);
@@ -11,6 +12,7 @@ const BlogsPage: React.FC<{searchParams: Record<string, any>}> = async ({searchP
 
     return (
         <>
+            <Breadcrumb breadcrumbs={breadcrumbs.profile_blogs} />
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 text-secondary-700 mb-12 items-center mx-auto">
                 <h1 className="text-secondary-600 my-2 text-xl font-bold">{AppTexts.BLOGS}</h1>
                 <Search />

@@ -20,7 +20,7 @@ const BlogsListPage: React.FC<{ searchParams: { q: string } }> = async ({ search
             <BlogsLengthHandler blogsLength={blogs.length} search={searchParams.q} />
             {blogs.length > 0 ? (
                 <>
-                    <h1 className="text-lg font-bold text-center bg-secondary-200 py-2 rounded-md mb-4">
+                    <h1 className="text-lg text-secondary-600 font-bold text-center bg-secondary-200 py-2 rounded-md mb-4">
                         {AppTexts.BLOG_LIST_PAGE}
                     </h1>
                     {/* we dont need anymore suspense because all fetch data be here and not in blogList */}
