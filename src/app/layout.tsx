@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import "@/styles/globals.css";
 import appTexts from "@/constants/appTexts";
 import { AuthProvider } from "@/contexts/auth.context";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 export const metadata: Metadata = {
     title: {
@@ -21,12 +22,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fa" dir="rtl" >
+        <html lang="fa" dir="rtl">
             <body className={`${AppFont.variable} font-sans min-h-screen`}>
-                <AuthProvider>
-                    <Toaster />
-                    {children}
-                </AuthProvider>
+                <ReactQueryProvider>
+                    <AuthProvider>
+                        <Toaster />
+                        {children}
+                    </AuthProvider>
+                </ReactQueryProvider>
             </body>
         </html>
     );

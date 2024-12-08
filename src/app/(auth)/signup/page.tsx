@@ -33,7 +33,7 @@ const SignupPage: React.FC = () => {
                     name="name"
                     errors={errors}
                     register={register}
-                    isRequired
+                    required
                 />
                 <RHFTextField
                     label="ایمیل"
@@ -41,7 +41,7 @@ const SignupPage: React.FC = () => {
                     errors={errors}
                     register={register}
                     dir="ltr"
-                    isRequired
+                    required
                 />
                 <RHFTextField
                     label="رمز عبور"
@@ -50,7 +50,7 @@ const SignupPage: React.FC = () => {
                     register={register}
                     dir="ltr"
                     type="password"
-                    isRequired
+                    required
                 />
 
                 {!isLoading && (

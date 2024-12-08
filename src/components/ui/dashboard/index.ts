@@ -7,3 +7,4 @@ export { DeleteBlogButton } from "./ActionsButtons";
 export { UpdateBlogButton } from "./ActionsButtons";
 export { CreateBlogButton } from "./ActionsButtons";
 export { default as DashboardStatics } from "./DashboardStatics";
+export { default as CreateBlogForm } from "./CreateBlogForm";

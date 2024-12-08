@@ -5,7 +5,7 @@ export default function RHFTextField({
     dir = "rtl",
     register,
     errors,
-    isRequired=false,
+    required = false,
     validationSchema = {},
     ...rest
 }) {
@@ -14,7 +14,7 @@ export default function RHFTextField({
     return (
         <div className={`textField relative ${hasError ? "textField--invalid" : ""}`}>
             <label htmlFor={name} className="mb-2 block text-secondary-700">
-            {label} {isRequired && <span className="text-red-600">*</span>}
+                {label} {required && <span className="text-red-600">*</span>}
             </label>
             <input
                 autoComplete="off"

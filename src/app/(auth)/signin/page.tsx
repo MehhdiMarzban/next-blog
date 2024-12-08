@@ -32,7 +32,7 @@ const SigninPage: React.FC = () => {
                     errors={errors}
                     register={register}
                     dir="ltr"
-                    isRequired
+                    required
                 />
                 <RHFTextField
                     label="رمز عبور"
@@ -41,7 +41,7 @@ const SigninPage: React.FC = () => {
                     register={register}
                     dir="ltr"
                     type="password"
-                    isRequired
+                    required
                 />
 
                 {!isLoading && (

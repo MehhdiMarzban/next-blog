@@ -1,12 +1,10 @@
 import Link from "next/link";
 
 import { CategoryType } from "@/types";
+import { getCategoriesApi } from "@/services/category.service";
 
 const CategoryList: React.FC = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category/list`);
-    const {
-        data: { categories },
-    }: { data: { categories: CategoryType[] } } = await res.json();
+    const { categories = [] }: { categories: CategoryType[] } = (await getCategoriesApi()) || {};
 
     return (
         <ul className="space-y-4 bg-secondary-100 text-secondary-600 rounded-md shadow-sm px-4 py-2 text-center">
