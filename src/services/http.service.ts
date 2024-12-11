@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 const app = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     withCredentials: true,
-    headers: { "Content-Type": "application/json" },
+    // headers: { "Content-Type": "application/json" },
 });
 
 app.interceptors.request.use(

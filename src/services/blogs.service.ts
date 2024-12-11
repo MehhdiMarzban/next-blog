@@ -21,13 +21,11 @@ export const getTotalBlogsApi = async (queries: string = "", options = {}): Prom
     return http.get(`/post/list?${queries}`, options).then(({ data }) => data.data.totalPages);
 };
 
-// export const getBlogsByCategoryApi = async (category: string, options): Promise<BlogType[]> => {
-//     const {
-//         data: { data },
-//     } = await http.get(`/post/list?categorySlug=${category}`, options);
-//     const { posts } = data || [];
-//     return posts;
-// };
+export const createBlogApi = async (
+    formData: FormData
+): Promise<{ message: string; post: BlogType }> => {
+    return http.post("/post/create", formData).then(({ data }) => data.data);
+};
 
 export const likeBlogsApi = (blogId: string): Promise<ResponseType> => {
     return http.post(`/post/like/${blogId}`).then((data) => data.data);
@@ -36,3 +34,11 @@ export const likeBlogsApi = (blogId: string): Promise<ResponseType> => {
 export const bookmarkBlogApi = (blogId: string): Promise<ResponseType> => {
     return http.post(`/post/bookmark/${blogId}`).then((data) => data.data);
 };
+
+// export const getBlogsByCategoryApi = async (category: string, options): Promise<BlogType[]> => {
+//     const {
+//         data: { data },
+//     } = await http.get(`/post/list?categorySlug=${category}`, options);
+//     const { posts } = data || [];
+//     return posts;
+// };
