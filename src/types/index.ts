@@ -14,3 +14,4 @@ export type { default as ResponseType } from "./Response";
 export type { default as CommentType } from "./Comment";
 export type { default as AppTableType } from "./AppTable";
 export type { default as BreadcrumbsType } from "./Breadcrumbs";
+export type { BreadcrumbLink as BreadcrumbLinkType } from "./Breadcrumbs";

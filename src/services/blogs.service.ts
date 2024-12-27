@@ -21,10 +21,24 @@ export const getTotalBlogsApi = async (queries: string = "", options = {}): Prom
     return http.get(`/post/list?${queries}`, options).then(({ data }) => data.data.totalPages);
 };
 
+export const getBlogById = async (blogId: BlogType["id"]): Promise<BlogType> => {
+    return http.get(`/post/${blogId}`).then(({ data }) => data.data.post);
+};
+
 export const createBlogApi = async (
     formData: FormData
 ): Promise<{ message: string; post: BlogType }> => {
     return http.post("/post/create", formData).then(({ data }) => data.data);
+};
+
+export const editBlogApi = async ({
+    blogId,
+    formData,
+}: {
+    blogId: BlogType["id"];
+    formData: FormData;
+}): Promise<{ message: string }> => {
+    return http.patch(`/post/update/${blogId}`, formData).then(({ data }) => data.data);
 };
 
 export const likeBlogsApi = (blogId: string): Promise<ResponseType> => {

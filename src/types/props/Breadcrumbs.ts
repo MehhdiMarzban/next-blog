@@ -1,5 +1,5 @@
-import { BreadcrumbsType } from "..";
+import { BreadcrumbLinkType } from "..";
 
 export default interface Breadcrumbs {
-    breadcrumbs: Array<BreadcrumbsType>;
+    breadcrumbs: Array<BreadcrumbLinkType>;
 }
