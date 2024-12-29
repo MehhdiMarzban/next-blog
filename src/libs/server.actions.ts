@@ -1,12 +1,14 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
 import { createCommentApi } from "@/services/comments.service";
 import { BlogType, CommentType } from "@/types";
 import setCookiesOnReq from "@/utils/setCookiesOnReq";
-import { revalidatePath } from "next/cache";
+import { deleteBlogApi } from "@/services/blogs.service";
+import toast from "react-hot-toast";
 
-export const createComment = async (
+export const createCommentAction = async (
     prevState,
     {
         blogId,
@@ -31,6 +33,25 @@ export const createComment = async (
         return { message };
     } catch (e: any) {
         const errorMessage: string = e?.response?.data?.message || "";
+        return { errorMessage };
+    }
+};
+
+export const deleteBlogAction = async (
+    prevState,
+    { blogId, formData }: { blogId: BlogType["id"]; formData: FormData }
+) => {
+    //* get and set cookies
+    const appCookies = cookies();
+    const requestOptions = setCookiesOnReq(appCookies);
+
+    //* fetch and show message
+    try {
+        const { message } = await deleteBlogApi(blogId, requestOptions);
+        revalidatePath("/dashboard/blogs", "page");
+        return { message };
+    } catch (e: any) {
+        const errorMessage: string = e?.response?.data?.message;
         return { errorMessage };
     }
 };

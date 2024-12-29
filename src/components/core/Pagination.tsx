@@ -16,6 +16,9 @@ export default function Pagination({ totalPages }) {
     const currentPage = Number(searchParams.get("page")) || 1;
     const itemsPerPage = Number(searchParams.get("limit")) || 6;
 
+    //* check for more than 1 page being exisit
+    if(totalPages <= 1) return null;
+
     const createPageURL = (pageNumber) => {
         const params = new URLSearchParams(searchParams);
         params.set("page", pageNumber.toString());

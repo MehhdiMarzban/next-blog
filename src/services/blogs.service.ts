@@ -1,5 +1,6 @@
 import { BlogType, ResponseType } from "@/types";
 import http from "./http.service";
+import { AxiosRequestConfig } from "axios";
 
 export const getBlogBySlugApi = async (slug: string, options): Promise<BlogType> => {
     const {
@@ -21,9 +22,22 @@ export const getTotalBlogsApi = async (queries: string = "", options = {}): Prom
     return http.get(`/post/list?${queries}`, options).then(({ data }) => data.data.totalPages);
 };
 
-export const getBlogById = async (blogId: BlogType["id"]): Promise<BlogType> => {
-    return http.get(`/post/${blogId}`).then(({ data }) => data.data.post);
+/**
+ * Fetches a blog by its ID.
+ * If the blog does not exist, the function resolves to undefined.
+ * @param blogId The ID of the blog to fetch.
+ * @returns A promise that resolves to the fetched blog or undefined.
+ */
+export const getBlogById = async (blogId: BlogType["id"]): Promise<BlogType | undefined> => {
+    return await http
+        .get(`/post/${blogId}`)
+        .then(({ data }) => data.data.post)
+        .catch((error) => undefined);
 };
+
+export const deleteBlogApi = async (blogId : BlogType["id"], options: AxiosRequestConfig = {}) : Promise<{message : string}> => {
+    return await http.delete(`/post/remove/${blogId}`, options).then(({data}) => data.data);
+}
 
 export const createBlogApi = async (
     formData: FormData

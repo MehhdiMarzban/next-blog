@@ -36,7 +36,9 @@ const AppTexts = {
     BLOG_EMPTY: "وبلاگی",
     CREATE_NEW_BLOG: "ساخت وبلاگ جدید",
     EDIT_BLOG: "ویرایش وبلاگ",
-
+    DELETE_BLOG: "حذف وبلاگ",
+    BE_SURE_TO_DELETE: "آیا از حذف این مقاله مطمن هستید ؟",
+    CANCEL: "لغو",
     VALIDATIONS: {
         MIN: "حداقل باید ${min} حرف باشد! ",
         REQUIRED: "پر کردن این قسمت ضروری است !",

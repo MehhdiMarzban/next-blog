@@ -34,8 +34,8 @@ const BlogRow: React.FC<{ blog: BlogType; index: number }> = ({
             </td>
             <td>
                 <div className="flex justify-start items-center gap-1">
-                    <UpdateBlogButton id={id} />
-                    <DeleteBlogButton id={id} />
+                    <UpdateBlogButton id={id} title={title} />
+                    <DeleteBlogButton id={id} title={title} />
                 </div>
             </td>
         </AppTable.Row>

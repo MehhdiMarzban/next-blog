@@ -1,8 +1,8 @@
 "use client";
 
 import { TextArea, SubmitButton } from "@/components/core";
-import { createComment } from "@/libs/server.actions";
-import { useEffect, useState } from "react";
+import { createCommentAction } from "@/libs/server.actions";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import toast from "react-hot-toast";
 
@@ -13,7 +13,7 @@ const initialState = {
 
 const CommentForm = ({ blogId, parentId, onClose }) => {
     const [state, formAction] = useFormState(
-        createComment,
+        createCommentAction,
         initialState as Partial<typeof initialState>
     );
 
