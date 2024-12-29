@@ -10,7 +10,7 @@ import { BlogType, CommentType } from "@/types";
 
 const BlogComments: React.FC<{ blog: BlogType }> = ({ blog: { comments, _id: blogId } }) => {
     const { user } = useAuth();
-    const [isOpen, setOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     const [parent, setParent] = useState<CommentType | null>(null);
     const router = useRouter();
 
@@ -20,7 +20,7 @@ const BlogComments: React.FC<{ blog: BlogType }> = ({ blog: { comments, _id: blo
             return;
         }
         setParent(parent);
-        setOpen(true);
+        setIsOpen(true);
     };
 
     return (
@@ -38,11 +38,11 @@ const BlogComments: React.FC<{ blog: BlogType }> = ({ blog: { comments, _id: blo
                     title={parent ? "پاسخ به نظر" : "نظر جدید"}
                     description={parent ? parent.user.name : "نظر خود را وارد کنید"}
                     open={isOpen}
-                    onClose={() => setOpen(false)}>
+                    onClose={() => setIsOpen(false)}>
                     <CommentForm
                         blogId={blogId}
                         parentId={parent ? parent._id : null}
-                        onClose={() => setOpen(false)}
+                        onClose={() => setIsOpen(false)}
                     />
                 </Modal>
             </div>
