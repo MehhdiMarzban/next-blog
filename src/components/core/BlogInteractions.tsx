@@ -35,7 +35,7 @@ const BlogInteractions: React.FC<{ blog: BlogType }> = ({ blog }) => {
     };
 
     return (
-        <div className="flex justify-center items-center mt-2 gap-x-4">
+        <div className="flex justify-start items-center gap-x-1">
             <ButtonIcon variant="secondary">
                 <ChatBubbleOvalLeftEllipsisIcon />
                 <span>{toPersianDigits(blog.commentsCount)}</span>

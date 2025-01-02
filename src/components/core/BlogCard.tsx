@@ -7,7 +7,7 @@ import appTexts from "@/constants/appTexts";
 
 const BlogCard: React.FC<{ blog: BlogType }> = ({ blog }) => {
     return (
-        <div className="col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-300 p-2 rounded-lg">
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-300 p-0 rounded-lg shadow-md">
             <CoverImage src={blog.coverImageUrl} alt={blog.title} slug={blog.slug} />
             {/* blog Content */}
             <div>
@@ -17,7 +17,7 @@ const BlogCard: React.FC<{ blog: BlogType }> = ({ blog }) => {
                 </Link>
 
                 {/* blog Author and ReadingTime */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between px-1">
                     {/* Author */}
                     <Author avatarUrl={blog.author.avatarUrl} name={blog.author.name} />
 
@@ -29,13 +29,15 @@ const BlogCard: React.FC<{ blog: BlogType }> = ({ blog }) => {
                         <span>{appTexts.MINUTES}</span>
                     </div>
                 </div>
-                {/* blog Interactions */}
-                <BlogInteractions blog={blog} />
-                <Link href={`/blogs/${blog.slug}`}>
-                    <Button variant="secondary" className="w-4/5 py-1 mx-auto mt-2">
-                        {appTexts.READING}
-                    </Button>
-                </Link>
+                {/* blogcard bottom */}
+                <div className="flex flex-row justify-between items-end gap-x-1 mt-2">
+                    <div className="p-1 flex-1"><BlogInteractions blog={blog}/></div>
+                    <Link href={`/blogs/${blog.slug}`} className="flex-1 my-0">
+                        <Button variant="secondary" className="py-1 w-full rounded-tl-none rounded-br-none rounded-bl-md">
+                            {appTexts.READING}
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

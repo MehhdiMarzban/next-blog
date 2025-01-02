@@ -4,7 +4,7 @@ import Link from "next/link";
 const CoverImage: React.FC<Readonly<{ alt?: string; src: string , slug: string}>> = ({ alt = "", src, slug }) => {
     return (
         <Link href={`/blogs/${slug}`}>
-            <div className="relative block aspect-video overflow-hidden rounded-md">
+            <div className="relative block aspect-video overflow-hidden rounded-t-md">
                 <Image
                     src={src}
                     alt={alt}

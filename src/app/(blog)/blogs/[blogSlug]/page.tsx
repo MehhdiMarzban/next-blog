@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import setCookiesOnReq from "@/utils/setCookiesOnReq";
 import { BlogType } from "@/types";
 import { getBlogBySlugApi, getBlogsApi } from "@/services/blogs.service";
-import { BlogComments, BlogInteractions, CoverImage, RelatedBlogs } from "@/components/core";
+import { BlogComments, BlogInteractions, Breadcrumb, CoverImage, RelatedBlogs } from "@/components/core";
+import breadcrumbs, { getBreadCrumb } from "@/constants/breadCrumbs";
 
 //* this is for disable or able to used dynamic params
 export const dynamicParams = false;
@@ -39,16 +40,20 @@ const BlogPage: React.FC<{ params: { blogSlug: string } }> = async ({ params: { 
     if (!blog) {
         return notFound();
     }
+
     return (
         <div className="bg-secondary-100 rounded-md py-4 px-2">
+            <Breadcrumb breadcrumbs={getBreadCrumb("blogs_slug", blogSlug)} />
             <h1 className="bg-secondary-200 text-secondary-600 rounded-md my-2 text-center py-4 text-2xl font-bold">
                 {blog.title}
             </h1>
-            <div className="max-w-xl mx-auto">
+            <div className="max-w-xl mx-auto space-y-1">
                 <CoverImage src={blog.coverImageUrl} alt={blog.title} slug={blog.slug} />
+                <BlogInteractions blog={blog} />
             </div>
-            <BlogInteractions blog={blog} />
-            <p className="mt-2 text-justify bg-secondary-50 text-secondary-500 p-2 rounded-md">{blog.text}</p>
+            <p className="mt-2 text-justify bg-secondary-50 text-secondary-500 p-2 rounded-md">
+                {blog.text}
+            </p>
             <br />
             {blog.related.length > 0 && <RelatedBlogs blogs={blog.related} />}
             <BlogComments blog={blog} />

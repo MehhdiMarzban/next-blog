@@ -1,5 +1,5 @@
 import AppTexts from "./appTexts";
-import { BreadcrumbsType, BreadcrumbLinkType } from "@/types";
+import { BreadcrumbsType, BreadcrumbLinkType, BlogType } from "@/types";
 
 const profile_blogs: BreadcrumbLinkType[] = [
     {
@@ -13,6 +13,16 @@ const profile_blogs: BreadcrumbLinkType[] = [
 ];
 
 const breadcrumbs = {
+    blogs_slug: (slug: BlogType["slug"]) => [
+        {
+            label: AppTexts.BLOGS,
+            href: `/blogs`,
+        },
+        {
+            label: slug,
+            href: `/blogs/${slug}`,
+        },
+    ],
     profile_blogs,
     profile_blogs_create: [
         ...profile_blogs,
@@ -21,7 +31,7 @@ const breadcrumbs = {
             href: "/profile/blogs/create",
         },
     ],
-    profile_blogs_edit: (blogId: string) => [
+    profile_blogs_edit: (blogId: BlogType["id"]) => [
         ...profile_blogs,
         {
             label: AppTexts.EDIT_BLOG,
@@ -30,12 +40,12 @@ const breadcrumbs = {
     ],
 } satisfies BreadcrumbsType;
 
-type KeysType = "profile_blogs_edit";
-export const getBreadCrumb = (key: KeysType, blogId: string) => {
+type KeysType = "profile_blogs_edit" | "blogs_slug";
+export const getBreadCrumb = (key: KeysType, data: BlogType["id"] | BlogType["slug"]) => {
     const breadcrumb = breadcrumbs[key];
 
     if (typeof breadcrumb === "function") {
-        return breadcrumb(blogId);
+        return breadcrumb(data);
     }
 
     return breadcrumb;

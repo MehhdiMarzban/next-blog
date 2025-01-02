@@ -6,7 +6,6 @@ import { createCommentApi } from "@/services/comments.service";
 import { BlogType, CommentType } from "@/types";
 import setCookiesOnReq from "@/utils/setCookiesOnReq";
 import { deleteBlogApi } from "@/services/blogs.service";
-import toast from "react-hot-toast";
 
 export const createCommentAction = async (
     prevState,
