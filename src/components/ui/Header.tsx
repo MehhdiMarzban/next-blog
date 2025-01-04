@@ -1,7 +1,7 @@
 "use client";
 
 import appTexts from "@/constants/appTexts";
-import { NavLink } from "../core";
+import { Button, NavLink } from "../core";
 import { useAuth } from "@/contexts/auth.context";
 
 const navLinks = [
@@ -19,7 +19,7 @@ const navLinks = [
 
 function Header() {
     const { user, isLoading } = useAuth();
-    
+
     return (
         <header
             className={`z-10 shadow-md bg-inherit mb-10 sticky top-0 transition-all duration-200 border-b border-b-secondary-300 bg-primary-900 ${
@@ -36,11 +36,15 @@ function Header() {
                             );
                         })}
                     </div>
-                    <li>
+                    <li className="flex flex-row gap-2 items-center">
                         {user ? (
                             <NavLink path="/profile">{appTexts.PROFILE}</NavLink>
                         ) : (
-                            <NavLink path="/signin">{appTexts.SIGNIN}</NavLink>
+                            <>
+                                <NavLink path="/signin">{appTexts.SIGNIN}</NavLink>
+                                <span className="text-secondary-200 ">/</span>
+                                <NavLink path="/signup">{appTexts.SIGNUP}</NavLink>
+                            </>
                         )}
                     </li>
                 </ul>

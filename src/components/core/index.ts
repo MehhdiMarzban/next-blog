@@ -24,3 +24,4 @@ export { default as Empty } from "./Empty";
 export { default as Pagination } from "./Pagination";
 export { default as Breadcrumb } from "./Breadcrumb";
 export { default as FileInput } from "./FileInput";
+export { default as ThemeChanger } from "./ThemeChanger";
