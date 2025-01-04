@@ -1,7 +1,7 @@
 "use client";
 
 import appTexts from "@/constants/appTexts";
-import { Button, NavLink } from "../core";
+import { NavLink } from "../core";
 import { useAuth } from "@/contexts/auth.context";
 
 const navLinks = [
