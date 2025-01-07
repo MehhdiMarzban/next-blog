@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "docker:dev": "next dev",
+    "docker:test:dev": "concurrently \"next dev\" \"cd .. && cd backend && npm run seed && npm run dev\" ",
     "dev": "concurrently \"next dev\" \"cd .. && cd .. && cd backend && npm run dev\" ",
     "build": "concurrently \"next build\" \"cd .. && cd .. && cd backend && npm run dev\" ",
     "start": "concurrently \"next start\" \"cd .. && cd .. && cd backend && npm run dev\" ",

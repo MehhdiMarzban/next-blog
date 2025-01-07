@@ -11,10 +11,10 @@ const NotFoundPage = () => {
     const getback = useGetback();
 
     return (
-        <section className="flex flex-col justify-center items-center">
+        <section className="flex flex-col justify-center items-center bg-secondary-100 h-screen space-y-2">
             <Lottie animationData={animationData} loop height={400} width={400} />
-            <h1 className="text-center text-pretty text-3xl">{appTexts.NOT_FOUND_PAGE}</h1>
-            <Button variant="primary" className="mt-1" onClick={getback}>
+            <h1 className="text-center text-pretty text-3xl text-secondary-700">{appTexts.NOT_FOUND_PAGE}</h1>
+            <Button variant="primary" onClick={getback}>
                 <Link href="/">{appTexts.BACK_TO_LAST_PAGE}</Link>
             </Button>
         </section>

@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="fa" dir="rtl">
-            <body className={`${AppFont.variable} font-sans min-h-screen`}>
+            <body className={`${AppFont.variable} font-sans min-h-screen bg-secondary-100`}>
                 <ReactQueryProvider>
                     <AuthProvider>
                         <Toaster />
