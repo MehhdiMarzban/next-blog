@@ -24,7 +24,7 @@ const SignupPage: React.FC = () => {
 
     return (
         <section>
-            <h1 className="text-lg font-bold text-center text-secondary-800 bg-secondary-200 py-2 rounded-md mb-4">
+            <h1 className="text-lg font-bold text-center bg-secondary-200 py-2 rounded-md mb-4">
                 {appTexts.SIGNUP}
             </h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
