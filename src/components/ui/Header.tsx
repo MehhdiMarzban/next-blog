@@ -42,7 +42,7 @@ function Header() {
                         ) : (
                             <>
                                 <NavLink path="/signin">{appTexts.SIGNIN}</NavLink>
-                                <span className="text-secondary-200 ">/</span>
+                                <span className="text-secondary-200 dark:text-slate-50">/</span>
                                 <NavLink path="/signup">{appTexts.SIGNUP}</NavLink>
                             </>
                         )}
