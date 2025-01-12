@@ -7,7 +7,7 @@ const CategoryList: React.FC = async () => {
     const { categories = [] }: { categories: CategoryType[] } = (await getCategoriesApi()) || {};
 
     return (
-        <ul className="space-y-4 bg-secondary-100 text-secondary-600 rounded-md shadow-sm px-4 py-2 text-center">
+        <ul className="space-y-4 bg-secondary-200 text-secondary-600 rounded-md shadow-sm px-4 py-2 text-center">
             <Link className="hover:scale-105 transition-all ease-out" href={`/blogs/`}>
                 همه
             </Link>
