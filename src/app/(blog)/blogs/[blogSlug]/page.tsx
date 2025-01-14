@@ -8,6 +8,8 @@ import { BlogComments, BlogInteractions, Breadcrumb, CoverImage, RelatedBlogs } 
 import { getBreadCrumb } from "@/constants/breadCrumbs";
 
 //* this is for control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
+//* false => will return 404 page
+//* true => generate that page dynamically
 export const dynamicParams = false;
 
 //* this is for rebuild this page after on hour , rebuild = 1- pass the validate time 2- request for this page
