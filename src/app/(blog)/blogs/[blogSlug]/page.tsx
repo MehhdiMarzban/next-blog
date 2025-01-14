@@ -5,9 +5,9 @@ import setCookiesOnReq from "@/utils/setCookiesOnReq";
 import { BlogType } from "@/types";
 import { getBlogBySlugApi, getBlogsApi } from "@/services/blogs.service";
 import { BlogComments, BlogInteractions, Breadcrumb, CoverImage, RelatedBlogs } from "@/components/core";
-import breadcrumbs, { getBreadCrumb } from "@/constants/breadCrumbs";
+import { getBreadCrumb } from "@/constants/breadCrumbs";
 
-//* this is for disable or able to used dynamic params
+//* this is for control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
 export const dynamicParams = false;
 
 //* this is for rebuild this page after on hour , rebuild = 1- pass the validate time 2- request for this page
